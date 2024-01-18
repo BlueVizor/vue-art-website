@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <div class="bg-cyan-100">
-        <h1>Commission Request Form</h1>
-        <div>
+    <div class="bg-slate-400 min-h-screen">
+        <h1 class="font-bold text-2xl text-center py-5">Commission Request Form</h1>
+        <div class="text-center">
             <Form/>
         </div>
     </div>
