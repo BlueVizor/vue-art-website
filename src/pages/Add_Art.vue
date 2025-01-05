@@ -1,12 +1,12 @@
 <script setup>
-    import Form from '@/components/Form.vue'
+    import Add_Form from '@/components/Add_Form.vue'
 </script>
 
 <template>
     <div class="bg-slate-400 min-h-screen">
-        <h1 class="font-bold text-2xl text-center py-5">Commission Request Form</h1>
+        <h1 class="font-bold text-2xl text-center py-5">Add New Art (Admin use only)</h1>
         <div class="text-center">
-            <Form/>
+            <Add_Form/>
         </div>
     </div>
 </template>

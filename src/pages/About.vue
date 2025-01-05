@@ -2,7 +2,7 @@
     <div class="bg-slate-400 min-h-screen">
         <h1 class="font-bold text-2xl text-center py-5">Hi, I'm Madelyn O'Connell!</h1>
         <div class="flex w-full justify-center items-center">
-            <img src="../images/Mads_Profile_Pic.jpg" alt="Sample Image" class="rounded-full max-h-80">
+            <img src="@/images/Mads_Profile_Pic.jpg" alt="Sample Image" class="rounded-full max-h-80">
         </div>
         
         <div class="text-center text-xl mx-64 py-10">

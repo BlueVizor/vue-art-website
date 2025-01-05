@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001640",
+    "express": "^4.19.2",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },

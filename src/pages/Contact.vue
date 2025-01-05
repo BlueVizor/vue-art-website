@@ -11,8 +11,8 @@ console.log('Contact.vue component is rendered');
                 <p>mjocreations@gmail.com</p>
                 <p class="font-semibold pt-3">Follow me:</p>
                 <div class="mt-3 flex items-center justify-center">
-                    <img class="w-11 ml-2" src="../../public/facebook.svg" alt="Facebook Logo" />
-                    <img class="w-11 ml-2" src="../../public/instagram.svg" alt="Instagram Logo" />
+                    <a href="https://www.facebook.com/MJOsCreations" target="_blank" rel="noopener noreferrer"><img class="w-11 ml-2" src="../../facebook.svg" alt="Facebook Logo"/></a>
+                    <a href="https://www.instagram.com/mjos_creations" target="_blank" rel="noopener noreferrer"><img class="w-11 ml-2" src="../../instagram.svg" alt="Instagram Logo"/></a>
                 </div>
             </div>
         </div>
