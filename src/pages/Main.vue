@@ -1,11 +1,13 @@
 <script setup>
 import CardGroupArt from "@/components/CardGroup_Art.vue";
-import CardGroupTattoo from "@/components/CardGroup_Tattoo.vue";
-import CardGroupConcept from "@/components/CardGroup_Concept.vue";
+
+const art = "art";
+const concept = "concept";
+const tattoo = "tattoo";
 </script>
 
 <template>
-    <CardGroupArt class="bg-slate-400 min-h-screen"/>
-    <CardGroupConcept class="bg-slate-950 min-h-screen"/>
-    <CardGroupTattoo class="bg-blue-900 min-h-screen"/>
+    <CardGroupArt :type="art" class="bg-slate-400 min-h-screen" />
+    <CardGroupArt :type="concept" class="bg-slate-950 min-h-screen" />
+    <CardGroupArt :type="tattoo" class="bg-blue-900 min-h-screen" />
 </template>

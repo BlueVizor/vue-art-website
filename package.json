@@ -9,8 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001640",
+    "dotenv": "^16.4.7",
     "express": "^4.19.2",
+    "firebase": "^11.1.0",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },

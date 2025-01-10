@@ -57,6 +57,10 @@
 </template>
 
 <script>
+import { db, storage } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
 export default {
     data() {
         return {
@@ -77,19 +81,38 @@ export default {
                 this.selectedFile = event.dataTransfer.files[0];
             }
         },
-        handleSubmit() {
-            if (!this.title || !this.details || !this.selectedFile) {
+        async handleSubmit() {
+            if (!this.category || !this.title || !this.details || !this.selectedFile) {
                 alert('Please fill out all fields and upload a file.');
                 return;
             }
-            const formData = new FormData();
-            formData.append('title', this.title);
-            formData.append('details', this.details);
-            formData.append('file', this.selectedFile);
 
-            // Simulate form submission
-            console.log('Form data submitted:', formData);
-            alert('Form submitted successfully!');
+            try {
+                // Upload file to Firebase Storage
+                const storageRef = ref(storage, `${this.category}/${this.selectedFile.name}`);
+                const snapshot = await uploadBytes(storageRef, this.selectedFile);
+                const downloadURL = await getDownloadURL(snapshot.ref);
+
+                // Add metadata to Firestore
+                await addDoc(collection(db, 'art'), {
+                    category: this.category,
+                    title: this.title,
+                    details: this.details,
+                    imageUrl: downloadURL,
+                    createdAt: new Date(),
+                });
+
+                alert('Form submitted successfully!');
+
+                // Reset form fields
+                this.category = '';
+                this.title = '';
+                this.details = '';
+                this.selectedFile = null;
+            } catch (error) {
+                console.error('Error uploading file or saving data:', error);
+                alert('An error occurred. Please try again.');
+            }
         },
     },
 };
