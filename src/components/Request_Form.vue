@@ -42,6 +42,7 @@
 <script>
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import axios from 'axios';
 
 export default {
     data() {
@@ -60,7 +61,6 @@ export default {
             }
 
             try {
-
                 // Add metadata to Firestore
                 await addDoc(collection(db, 'requests'), {
                     name: this.name,
@@ -70,6 +70,16 @@ export default {
                     createdAt: new Date(),
                 });
 
+                // Send email
+                const PORT = 3002;
+                const response = await axios.post(`http://localhost:${PORT}/send-email`, {
+                    name: this.name,
+                    email: this.email,
+                    title: this.title,
+                    details: this.details,
+                });
+
+                console.log("Email sent:", response.data);
                 alert('Form submitted successfully!');
 
                 // Reset form fields
@@ -78,7 +88,7 @@ export default {
                 this.title = '';
                 this.details = '';
             } catch (error) {
-                console.error('Error saving data:', error);
+                console.error('Error saving data or sending email:', error);
                 alert('An error occurred. Please try again.');
             }
         },
